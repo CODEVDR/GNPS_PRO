@@ -908,7 +908,7 @@ def signIn():
                                         pass
                                     # New Window
                                     # ===========================================================================================================
-                                    #root.destroy()
+                                    root.destroy()
                                     data = Tk()
                                     data.wm_iconbitmap("gnps_logo.ico")
                                     data.maxsize(900, 600)
