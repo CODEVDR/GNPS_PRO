@@ -923,19 +923,16 @@ def signIn():
                                                 "Error", "Please Enter A Class")
                                         elif (cl.get()).isdigit():
                                             cls = int(cl.get())
-                                            if cls >= 0 and cls <= 12:
-                                                q1 = f"""select * from student_data where class="{cls}";"""
+                                            if cls > 0 and cls <= 12:
+                                                q1 = f"""select * from student_data where class="{cls}" order by name desc;"""
                                                 res = read_query(cd, q1)
                                                 Label(data, text=f"(name,class,father_name,mob_no,admn_no,blood_group)", font="conicsans 10 bold").grid(
                                                     row=3, column=1)
                                                 TextArea = Text(
                                                     data, font="lucida 13")
                                                 TextArea.grid(row=4, column=1)
-                                                j = 1
-                                                for i in res:
-                                                    TextArea.insert(
-                                                        1.0, f"{j}.{i}")
-                                                    j += 1
+                                                for i in res: 
+                                                    TextArea.insert(-1.0,f"{i}\n")
                                                 Scroll = Scrollbar(
                                                     data, orient=VERTICAL)
                                                 Scroll.grid(row=4, sticky=NS)
