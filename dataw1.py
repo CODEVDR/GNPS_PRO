@@ -1,4 +1,3 @@
-from logging import root
 from tkinter import*
 from sqlmodule import *
 import tkinter.messagebox as msg
@@ -21,8 +20,8 @@ def newWindow(root, cd):
         if CLASS.get() == "":
             msg.showerror(
                 "Error", "Please Enter A Class")
-        elif (CLASS.get()).upper()=="UKG" or (CLASS.get()).upper()=="LKG" or (CLASS.get()).upper()=="NURSERY":
-            cls=CLASS.get()
+        elif (CLASS.get()).upper() == "UKG" or (CLASS.get()).upper() == "LKG" or (CLASS.get()).upper() == "NURSERY":
+            cls = CLASS.get()
             q1 = f"""select * from student_data where class="{cls}" order by name desc;"""
             res = read_query(cd, q1)
             Label(data, text=f"(name,class,father_name,mob_no,admn_no,blood_group)", font="conicsans 10 bold").grid(
@@ -71,9 +70,9 @@ def newWindow(root, cd):
         data.destroy()
         from gnps21 import rootw1
         rootw1()
-        
+
     Button(data, text=u"\u2190", command=back,
-           font="conicsans 15",fg="green").grid(row=0, column=0)
+           font="conicsans 15", fg="green").grid(row=0, column=0)
     Label(data, text="GURUNANAK PUBLIC SCHOOL", font="conicsans 19 bold", fg="purple").grid(
         row=0, column=1)
     Label(data, text="Enter Class : ", font="conicsans 10 bold").grid(
